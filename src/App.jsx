@@ -1,5 +1,24 @@
+import React, { useState } from 'react';
+
+import AddUser from "./components/Users/AddUser.jsx";
+import UsersList from "./components/Users/UsersList"
+import usersList from "./components/Users/UsersList";
 function App() {
-  return <h1>Hello World!</h1>;
+
+    const [userList, setUserList] = useState([]);
+
+    const onAddUser = (uName, uAge) => {
+        setUserList((perevList) => {
+            return [...perevList, {name: uName, age:uAge, id: Math.random().toString()}]
+        });
+    };
+
+    return (
+      <div>
+          <AddUser onAddUser={onAddUser}/>
+          <UsersList users={userList}/>
+      </div>
+  );
 }
 
 export default App;

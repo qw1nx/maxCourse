@@ -1,24 +1,14 @@
-import Counter from './components/Counter';
-import {Fragment} from "react";
-import Header from "./components/Header";
-import Auth from "./components/Auth";
-import { useSelector} from "react-redux";
-import UserProfile from "./components/UserProfile";
-
+import Cart from './components/Cart/Cart';
+import Layout from './components/Layout/Layout';
+import Products from './components/Shop/Products';
 
 function App() {
-
-    const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
-
-
-    return (
-        <Fragment>
-            <Header/>
-            {!isAuthenticated && <Auth/>}
-            {isAuthenticated && <UserProfile/>}
-            <Counter/>
-        </Fragment>
-    );
+  return (
+    <Layout>
+      <Cart />
+      <Products />
+    </Layout>
+  );
 }
 
 export default App;
